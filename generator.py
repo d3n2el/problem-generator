@@ -10,6 +10,7 @@ def main():
         x= generate_integer(lvl)
         y= generate_integer(lvl)
         i=3
+        q= x+y
         while i >0:
             print(f"{x} + {y} =", end=" ")
             m = int(input())
@@ -53,4 +54,5 @@ def generate_integer(level):
 
 if __name__ == "__main__":
     main()
+
 
