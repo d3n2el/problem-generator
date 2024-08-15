@@ -3,13 +3,16 @@ import random
 
 def main():
     lvl= get_level()
-    x,y = generate_integer(lvl)
-    print(f"{x}+{y}")
-
-
+    while True:
+        x,y = generate_integer(lvl)
+        print(f"{x}+{y}=", end=" ")
+        m = int(input())
+        if not m == x + y:
+            print("EEE")
+            continue
 def get_level():
     while True:
-        lvl= input("Level")
+        lvl= input("Level:")
         if lvl == "1" or lvl== "2" or lvl== "3":
             return int(lvl)
         else:
