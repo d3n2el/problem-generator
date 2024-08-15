@@ -2,14 +2,25 @@ import random
 
 
 def main():
+    error= 0
+    attempts= 10
     lvl= get_level()
-    while True:
+    p= 10
+    while p> 0:
         x,y = generate_integer(lvl)
-        print(f"{x}+{y}=", end=" ")
-        m = int(input())
-        if not m == x + y:
-            print("EEE")
-            continue
+        i=3
+        while i >0:
+            print(f"{x}+{y}=", end=" ")
+            m = int(input())
+            i= i-1
+            p= p-1
+            if m == x+y:
+                break
+            if not m == x + y:
+                error+= 1
+                print("EEE")
+        f= attempts-error
+        print(f)
 def get_level():
     while True:
         lvl= input("Level:")
@@ -17,21 +28,3 @@ def get_level():
             return int(lvl)
         else:
             continue
-
-
-
-
-def generate_integer(level):
-    if level == 1:
-        x = random.randrange(10)
-        y = random.randrange(10)
-    if level == 2:
-        x = random.randrange(100)
-        y = random.randrange(100)
-    if level == 3:
-        x = random.randrange(1000)
-        y = random.randrange(1000)
-    return x, y
-
-if __name__ == "__main__":
-    main()
