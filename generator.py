@@ -6,6 +6,7 @@ def main():
     attempts= 10
     lvl= get_level()
     p= 10
+    w=3
     while p> 0:
         x,y = generate_integer(lvl)
         i=3
@@ -18,9 +19,11 @@ def main():
                 break
             if not m == x + y:
                 error+= 1
-                print("EEE")
-        f= attempts-error
-        print(f)
+                print("EEE")`
+            print(x+y)
+
+    f= attempts-error
+    print("Score:",f)
 def get_level():
     while True:
         lvl= input("Level:")
@@ -28,3 +31,21 @@ def get_level():
             return int(lvl)
         else:
             continue
+
+
+
+
+def generate_integer(level):
+    if level == 1:
+        x = random.randrange(10)
+        y = random.randrange(10)
+    if level == 2:
+        x = random.randrange(100)
+        y = random.randrange(100)
+    if level == 3:
+        x = random.randrange(1000)
+        y = random.randrange(1000)
+    return x, y
+
+if __name__ == "__main__":
+    main()
