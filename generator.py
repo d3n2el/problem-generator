@@ -1,30 +1,36 @@
 import random
-
+print()
 def main():
+    operation = input("What type of operations do you want to do?")
+    operations = {
+    "+": "add",
+    "-": "subtract",
+    "*": "multiply",
+    "/": "divide"
+    }
+    if operation in operations:
+        print(operations[operation])
+
     error= 0
     err= 0
     attempts= 10
     lvl= get_level()
-    p= 10
-    while p> 0:
+    for _ in range(10):
         x= generate_integer(lvl)
         y= generate_integer(lvl)
-        i=3
         q= x+y
-        while i >0:
-            print(f"{x} + {y} =", end=" ")
+        for i in range(3):
+            print(f"{x} {o} {y} =", end=" ")
             m = int(input())
-            i= i-1
-            p= p-1
             if m == x+y:
                 break
             if not m == x + y:
                 error+= 1
                 print("EEE")
-        if not m== x+y:
+        if not m== x o y:
             err+=1
         if error== 3:
-            print(f"{x} + {y} = {q}")
+            print(f"{x} {o} {y} = {q}")
             error= 0
 
     f= attempts-err
@@ -44,10 +50,10 @@ def generate_integer(level):
             n= random.randint(0,9)
             return n
         case 2:
-            n= random.randint(0,99)
+            n= random.randint(10,99)
             return n
         case 3:
-            n= random.randint(0,999)
+            n= random.randint(100,999)
             return n
         case _:
             raise ValueError
