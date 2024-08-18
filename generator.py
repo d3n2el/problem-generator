@@ -1,16 +1,14 @@
 import random
+import operator
 print()
 def main():
-    operation = input("What type of operations do you want to do?")
+    operation = input("What type of operations do you want to do?") 
     operations = {
-    "+": "add",
-    "-": "subtract",
-    "*": "multiply",
-    "/": "divide"
+        "+": operator.add,
+        "-": operator.sub,
+        "*": operator.mul,
+        "/": operator.truediv
     }
-    if operation in operations:
-        print(operations[operation])
-
     error= 0
     err= 0
     attempts= 10
@@ -18,19 +16,20 @@ def main():
     for _ in range(10):
         x= generate_integer(lvl)
         y= generate_integer(lvl)
-        q= x+y
+        func = operations[operation]
+        q= func(x, y)
         for i in range(3):
-            print(f"{x} {o} {y} =", end=" ")
+            print(f"{x} {operation} {y} =", end=" ")
             m = int(input())
-            if m == x+y:
+            if m == q:
                 break
-            if not m == x + y:
+            if not m == q:
                 error+= 1
                 print("EEE")
-        if not m== x o y:
+        if not m== q:
             err+=1
         if error== 3:
-            print(f"{x} {o} {y} = {q}")
+            print(f"{x}{operation}{y} = {q}")
             error= 0
 
     f= attempts-err
